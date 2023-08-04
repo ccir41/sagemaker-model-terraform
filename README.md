@@ -54,10 +54,13 @@ tar -czvf model.tar.gz -C model .
 
 
 **Compress Lambda function for deployment**
+
 ```bash
-zip lambda_function.zip ./lambda/lambda_function.py
 zip -r lambda.zip ./lambda/* -j
 ```
+- `zip -r lambda.zip` : It creates a zip file named `lambda.zip`
+- `./lambda/*` : It specify the path of the files and folders inside the `lambda` directory. The `*` glob pattern is used to include all files and folders inside the `lambda` directory.
+- `-j`: With this option, `zip` will store only the relative paths of the files, effectively flattening the folder structure inside the zip archive.
 
 ## Step 3 : Upload model artifacts to s3 bucket
 
