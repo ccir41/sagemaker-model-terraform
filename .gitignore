@@ -1,0 +1,6 @@
+.terraform/
+.terraform.lock.hcl
+model.tar.gz
+pytorch_model.bin
+test.md
+lambda.zip
