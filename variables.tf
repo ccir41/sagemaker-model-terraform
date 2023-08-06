@@ -77,6 +77,26 @@ variable "sagemaker_model_instance_type" {
   default = "ml.t2.medium"
 }
 
+variable "cognito_user_pool_name" {
+  type = string
+  description = "Name of the cognito user pool"
+}
+
+variable "cognito_user_pool_client_name" {
+  type = string
+  description = "The user pool client name"
+}
+
+variable "cognito_user_pool_domain" {
+  type = string
+  description = "The user pool domain name for hosted UI"
+}
+
+variable "apigateway_authorizer_name" {
+  type = string
+  description = "The api gateway authorizer name"
+}
+
 variable "rest_api_name" {
   type        = string
   description = "Name of the REST API"

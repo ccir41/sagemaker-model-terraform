@@ -129,9 +129,39 @@ api_gateway_url = "https://k3565nbkl6.execute-api.ap-south-1.amazonaws.com/dev"
 
 Append `/sentiment` to the api url for getting the sentiment for financial text. Request method will be `POST`
 
-```bash
 
-https://k3565nbkl6.execute-api.ap-south-1.amazonaws.com/dev/sentiment
+```bash
+Method: Post
+
+Request URL: https://k3565nbkl6.execute-api.ap-south-1.amazonaws.com/dev/sentiment
+
+Request Data:
+
+{
+    "text": "growth is strong and we have plenty of liquidity"
+}
+
+Response:
+
+{
+    "message": "Unauthorized"
+}
+```
+
+Create a user from cognito user pool, then on the app integration section, scroll down to App client list section click on the available option - you will see hosted UI section down below. Just click it and a log in page will appear. Upon filling correct credentials, the page will redirect to the following url: `http://localhost:3000/#id_token=<id_token>&access_token=<access_token>&expires_in=3600&token_type=Bearer`. Copy `id_token` from url and use it as in authorization header while calling API as follow.
+
+```bash
+Method: Post
+
+Request URL: https://k3565nbkl6.execute-api.ap-south-1.amazonaws.com/dev/sentiment
+
+Headers
+
+{
+    "Authorization": Bearer <id_token_value>
+}
+
+Request Data
 
 {
     "text": "growth is strong and we have plenty of liquidity"
@@ -143,7 +173,7 @@ Response
     "data": [
         {
             "label": "POSITIVE",
-            "score": 1
+            "score": 1.0
         }
     ]
 }
