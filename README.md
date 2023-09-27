@@ -16,20 +16,13 @@ Create a s3 bucket to store the terraform state. The bucket should have version 
 **Create s3 bucket from CLI**
 
 ```bash
-aws s3api create-bucket \ 
-    --bucket sagemaker-endpoint-deploy-tf-state \
-    --region ap-south-1 \
-    --create-bucket-configuration LocationConstraint=ap-south-1 \
-    --profile sagemaker
+aws s3api create-bucket --bucket sagemaker-endpoint-deploy-tf-state --region ap-south-1 --create-bucket-configuration LocationConstraint=ap-south-1 --profile sagemaker
 ```
 
 **Enable Version**
 
 ```bash
-aws s3api put-bucket-versioning \
-    --bucket sagemaker-endpoint-deploy-tf-state \
-    --versioning-configuration Status=Enabled \ 
-    --profile sagemaker
+aws s3api put-bucket-versioning --bucket sagemaker-endpoint-deploy-tf-state --versioning-configuration Status=Enabled --profile sagemaker
 ```
 
 ## Step 2 : Build artifacts
